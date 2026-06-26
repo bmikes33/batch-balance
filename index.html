@@ -37,125 +37,54 @@
   .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
   /* ---------- HEADER / LOGO ---------- */
-  .header {
-    text-align: center;
-    padding: 56px 24px 40px;
-  }
-  .diamond {
-    color: var(--gold);
-    font-size: 12px;
-    letter-spacing: 0.3em;
-    margin: 0 auto 18px;
-  }
+  .header { text-align: center; padding: 56px 24px 40px; }
+  .diamond { color: var(--gold); font-size: 12px; letter-spacing: 0.3em; margin: 0 auto 18px; }
   .logo-name {
     font-family: 'Dancing Script', cursive;
     font-size: clamp(48px, 11vw, 76px);
-    font-weight: 600;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 18px;
+    font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 18px;
   }
   .logo-name .amp { color: var(--gold-soft); }
   .logo-tag {
-    font-size: 13px;
-    letter-spacing: 0.38em;
-    text-transform: uppercase;
-    color: var(--gold-soft);
-    margin-bottom: 28px;
+    font-size: 13px; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--gold-soft); margin-bottom: 28px;
   }
-  .location {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 19px;
-    font-style: italic;
-    color: var(--text-on-brown-soft);
-  }
-  .rating {
-    margin-top: 10px;
-    font-size: 14px;
-    color: var(--gold-soft);
-    letter-spacing: 0.05em;
-  }
+  .location { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--text-on-brown-soft); }
+  .rating { margin-top: 10px; font-size: 14px; color: var(--gold-soft); letter-spacing: 0.05em; }
 
   /* ---------- ACTION BUTTONS ---------- */
-  .actions {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 8px 24px 8px;
-  }
+  .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; padding: 8px 24px; }
   .btn {
     display: inline-flex; align-items: center; gap: 9px;
     padding: 15px 30px; border-radius: 999px;
-    font-size: 13px; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
     transition: all .25s ease; cursor: pointer; border: none;
   }
-  .btn-gold {
-    background: var(--gold); color: var(--brown-deep);
-    box-shadow: 0 6px 20px rgba(201, 162, 75, 0.3);
-  }
+  .btn-gold { background: var(--gold); color: var(--brown-deep); box-shadow: 0 6px 20px rgba(201, 162, 75, 0.3); }
   .btn-gold:hover { background: var(--gold-soft); transform: translateY(-2px); box-shadow: 0 9px 26px rgba(201, 162, 75, 0.4); }
-  .btn-outline {
-    background: transparent; color: var(--text-on-brown);
-    border: 1.5px solid var(--brown-soft);
-  }
+  .btn-outline { background: transparent; color: var(--text-on-brown); border: 1.5px solid var(--brown-soft); }
   .btn-outline:hover { border-color: var(--gold-soft); color: var(--gold-soft); }
 
   /* ---------- SECTION TITLES ---------- */
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 34px;
-    font-weight: 600;
-    text-align: center;
-    color: var(--cream);
-    margin-bottom: 6px;
-  }
-  .section-title-deco {
-    text-align: center;
-    color: var(--gold);
-    font-size: 11px;
-    letter-spacing: 0.3em;
-    margin-bottom: 36px;
-  }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; text-align: center; color: var(--cream); margin-bottom: 6px; }
+  .section-title-deco { text-align: center; color: var(--gold); font-size: 11px; letter-spacing: 0.3em; margin-bottom: 36px; }
   .section { padding: 56px 0; }
 
   /* ---------- CATEGORY GROUP ---------- */
   .cat-group { margin-bottom: 44px; }
   .cat-group:last-child { margin-bottom: 0; }
-  .cat-label {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-bottom: 22px;
-  }
-  .cat-label::before, .cat-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--brown-soft);
-  }
+  .cat-label { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+  .cat-label::before, .cat-label::after { content: ''; flex: 1; height: 1px; background: var(--brown-soft); }
   .cat-label span {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 25px;
-    font-weight: 600;
-    color: var(--gold-soft);
-    letter-spacing: 0.04em;
-    white-space: nowrap;
+    font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600;
+    color: var(--gold-soft); letter-spacing: 0.04em; white-space: nowrap;
   }
 
   /* ---------- PRODUCT GRID ---------- */
-  .products {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
+  .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
   .product {
-    background: var(--cream-card);
-    color: var(--ink);
-    border-radius: var(--radius);
-    overflow: hidden;
-    cursor: pointer;
+    background: var(--cream-card); color: var(--ink);
+    border-radius: var(--radius); overflow: hidden; cursor: pointer;
     transition: transform .3s ease, box-shadow .3s ease;
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
   }
@@ -164,160 +93,49 @@
   .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
   .product:hover .product-img img { transform: scale(1.05); }
   .product-body { padding: 16px 18px 18px; }
-  .product-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
-    font-weight: 600;
-    line-height: 1.15;
-    margin-bottom: 4px;
-  }
-  .product-price {
-    color: var(--brown);
-    font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 8px;
-  }
-  .product-desc {
-    font-size: 13.5px;
-    color: #6B5847;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height .35s ease, opacity .35s ease, margin .35s ease;
-  }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; line-height: 1.15; margin-bottom: 4px; }
+  .product-price { color: var(--brown); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+  .product-desc { font-size: 13.5px; color: #6B5847; max-height: 0; overflow: hidden; opacity: 0; transition: max-height .35s ease, opacity .35s ease, margin .35s ease; }
   .product.open .product-desc { max-height: 200px; opacity: 1; margin-top: 4px; }
-  .product-toggle {
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 600;
-    margin-top: 8px;
-  }
+  .product-toggle { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 8px; }
 
   /* ---------- ABOUT ---------- */
-  .about {
-    text-align: center;
-    background: var(--brown-deep);
-  }
-  .about-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 21px;
-    line-height: 1.7;
-    color: var(--text-on-brown);
-    max-width: 540px;
-    margin: 0 auto;
-  }
-  .about-script {
-    font-family: 'Dancing Script', cursive;
-    font-size: 30px;
-    color: var(--gold-soft);
-    margin-top: 24px;
-  }
+  .about { text-align: center; background: var(--brown-deep); }
+  .about-text { font-family: 'Cormorant Garamond', serif; font-size: 21px; line-height: 1.7; color: var(--text-on-brown); max-width: 540px; margin: 0 auto; }
+  .about-script { font-family: 'Dancing Script', cursive; font-size: 30px; color: var(--gold-soft); margin-top: 24px; }
 
   /* ---------- ORDER FORM ---------- */
-  .order-card {
-    background: var(--cream-card);
-    color: var(--ink);
-    border-radius: 18px;
-    padding: 36px 30px;
-    box-shadow: 0 10px 36px rgba(0,0,0,0.25);
-  }
+  .order-card { background: var(--cream-card); color: var(--ink); border-radius: 18px; padding: 36px 30px; box-shadow: 0 10px 36px rgba(0,0,0,0.25); }
   .order-card .field { margin-bottom: 14px; }
-  .order-card label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: var(--brown);
-    margin-bottom: 6px;
-  }
+  .order-card label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--brown); margin-bottom: 6px; }
   .order-card input, .order-card textarea, .order-card select {
-    width: 100%;
-    padding: 12px 14px;
-    border: 1.5px solid #E5D8C3;
-    border-radius: 10px;
-    background: var(--cream);
-    font-family: inherit;
-    font-size: 15px;
-    color: var(--ink);
-    transition: border-color .2s ease;
+    width: 100%; padding: 12px 14px; border: 1.5px solid #E5D8C3; border-radius: 10px;
+    background: var(--cream); font-family: inherit; font-size: 15px; color: var(--ink); transition: border-color .2s ease;
   }
-  .order-card input:focus, .order-card textarea:focus, .order-card select:focus {
-    outline: none; border-color: var(--gold);
-  }
+  .order-card input:focus, .order-card textarea:focus, .order-card select:focus { outline: none; border-color: var(--gold); }
   .order-card textarea { resize: vertical; min-height: 90px; }
   .order-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .submit-btn {
-    width: 100%;
-    margin-top: 8px;
-    padding: 16px;
-    background: var(--brown);
-    color: var(--cream);
-    border: none;
-    border-radius: 999px;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: background .2s ease;
+    width: 100%; margin-top: 8px; padding: 16px; background: var(--brown); color: var(--cream);
+    border: none; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer; transition: background .2s ease;
   }
   .submit-btn:hover { background: var(--brown-deep); }
-  .order-divider {
-    text-align: center;
-    margin: 26px 0 22px;
-    color: var(--text-on-brown-soft);
-    font-size: 13px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    position: relative;
-  }
-  .text-order {
-    text-align: center;
-  }
+  .order-divider { text-align: center; margin: 26px 0 22px; color: var(--text-on-brown-soft); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .text-order { text-align: center; }
   .text-order p { color: var(--text-on-brown-soft); font-size: 15px; margin-bottom: 16px; }
 
   /* ---------- POLICY ---------- */
-  .policy {
-    text-align: center;
-    padding: 44px 0;
-  }
-  .policy-item {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    color: var(--text-on-brown);
-    margin-bottom: 8px;
-  }
+  .policy { text-align: center; padding: 44px 0; }
+  .policy-item { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-on-brown); margin-bottom: 8px; }
   .policy-item strong { color: var(--gold-soft); font-weight: 600; }
 
   /* ---------- FOOTER ---------- */
-  footer {
-    text-align: center;
-    padding: 40px 24px 50px;
-    border-top: 1px solid var(--brown-soft);
-  }
-  .social {
-    display: flex;
-    gap: 14px;
-    justify-content: center;
-    margin-bottom: 22px;
-  }
-  .social a {
-    width: 44px; height: 44px;
-    border: 1.5px solid var(--brown-soft);
-    border-radius: 50%;
-    display: grid; place-items: center;
-    transition: all .25s ease;
-  }
+  footer { text-align: center; padding: 40px 24px 50px; border-top: 1px solid var(--brown-soft); }
+  .social { display: flex; gap: 14px; justify-content: center; margin-bottom: 22px; }
+  .social a { width: 44px; height: 44px; border: 1.5px solid var(--brown-soft); border-radius: 50%; display: grid; place-items: center; transition: all .25s ease; }
   .social a:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
-  .footer-name {
-    font-family: 'Dancing Script', cursive;
-    font-size: 28px;
-    color: var(--cream);
-    margin-bottom: 6px;
-  }
+  .footer-name { font-family: 'Dancing Script', cursive; font-size: 28px; color: var(--cream); margin-bottom: 6px; }
   .footer-copy { font-size: 12px; color: var(--text-on-brown-soft); letter-spacing: 0.04em; }
 
   @media (max-width: 540px) {
@@ -351,7 +169,7 @@
     <h2 class="section-title">What's Baking</h2>
     <div class="section-title-deco">◆ ◆ ◆</div>
 
-    <!-- ======================= QUICK BREADS ======================= -->
+    <!-- QUICK BREADS -->
     <div class="cat-group">
       <div class="cat-label"><span>Quick Breads</span></div>
       <div class="products">
@@ -409,7 +227,7 @@
       </div>
     </div>
 
-    <!-- ======================= TREATS ======================= -->
+    <!-- TREATS -->
     <div class="cat-group">
       <div class="cat-label"><span>Treats</span></div>
       <div class="products">
@@ -437,7 +255,7 @@
       </div>
     </div>
 
-    <!-- ======================= PROTEIN ======================= -->
+    <!-- PROTEIN -->
     <div class="cat-group">
       <div class="cat-label"><span>Protein</span></div>
       <div class="products">
@@ -474,6 +292,7 @@
 
       </div>
     </div>
+
   </div>
 </section>
 
@@ -496,15 +315,7 @@
     <div class="section-title-deco">◆ ◆ ◆</div>
 
     <div class="order-card">
-      <!-- 
-        ============================================================
-        FORMSPREE SETUP:
-        1. Create a free account at https://formspree.io
-        2. Create a new form, copy your form ID
-        3. Replace YOUR_FORM_ID below with it
-        ============================================================
-      -->
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <form action="https://formspree.io/f/mjgqyjdv" method="POST">
         <div class="order-row">
           <div class="field">
             <label for="name">Name</label>
@@ -534,7 +345,7 @@
         </div>
         <div class="field">
           <label for="order">Your Order</label>
-          <textarea id="order" name="order" placeholder="e.g. 1 Chocolate Pumpkin Bread, 2 dozen cookies, 1 GF Cinnamon Swirl..." required></textarea>
+          <textarea id="order" name="order" placeholder="e.g. 1 Banana Bread (GF), 1 dozen Cherry Almond Cheesecakes, 2 Yogurt Protein Cups..." required></textarea>
         </div>
         <div class="field">
           <label for="notes">Allergies or Special Requests</label>
@@ -565,16 +376,12 @@
 <!-- FOOTER -->
 <footer>
   <div class="social">
-    <a href="https://www.instagram.com/sweetsips.treats/" target="_blank" rel="noreferrer" aria-label="Instagram">
+    <a href="https://www.instagram.com/batchnbalance/" target="_blank" rel="noreferrer" aria-label="Instagram">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
-    <a href="#" target="_blank" rel="noreferrer" aria-label="Facebook">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
     </a>
   </div>
   <div class="footer-name">Batch &amp; Balance</div>
   <div class="footer-copy">© 2026 Batch &amp; Balance · Small-Batch Bakery · Chicagoland's Western Suburbs</div>
-  <!-- index.html — current build: Formspree mjgqyjdv, text 224-407-2306 -->
 </footer>
 
 </body>
