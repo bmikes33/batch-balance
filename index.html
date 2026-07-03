@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Batch & Balance — Small-Batch Bakery | Chicagoland's Western Suburbs</title>
+<meta name="description" content="Batch & Balance is a small-batch home bakery serving Chicagoland's Western Suburbs — artisan quick breads, protein snacks, and treats made fresh to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Dancing+Script:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #4A3528;
+    --brown-deep: #3A2A1F;
+    --brown-soft: #5E4636;
+    --cream: #FBF4E9;
+    --cream-card: #FDF9F1;
+    --gold: #C9A24B;
+    --gold-soft: #D9BC7A;
+    --ink: #2E2118;
+    --text-on-brown: #F3E8D8;
+    --text-on-brown-soft: #C9B5A0;
+    --radius: 12px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--brown);
+    color: var(--text-on-brown);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- HEADER / LOGO ---------- */
+  .header { text-align: center; padding: 56px 24px 40px; }
+  .diamond { color: var(--gold); font-size: 12px; letter-spacing: 0.3em; margin: 0 auto 18px; }
+  .logo-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(48px, 11vw, 76px);
+    font-weight: 600; color: var(--cream); line-height: 1; margin-bottom: 18px;
+  }
+  .logo-name .amp { color: var(--gold-soft); }
+  .logo-tag {
+    font-size: 13px; letter-spacing: 0.38em; text-transform: uppercase;
+    color: var(--gold-soft); margin-bottom: 28px;
+  }
+  .location { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--text-on-brown-soft); }
+  .rating { margin-top: 10px; font-size: 14px; color: var(--gold-soft); letter-spacing: 0.05em; }
+
+  /* ---------- ACTION BUTTONS ---------- */
+  .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; padding: 8px 24px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 15px 30px; border-radius: 999px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: all .25s ease; cursor: pointer; border: none;
+  }
+  .btn-gold { background: var(--gold); color: var(--brown-deep); box-shadow: 0 6px 20px rgba(201, 162, 75, 0.3); }
+  .btn-gold:hover { background: var(--gold-soft); transform: translateY(-2px); box-shadow: 0 9px 26px rgba(201, 162, 75, 0.4); }
+  .btn-outline { background: transparent; color: var(--text-on-brown); border: 1.5px solid var(--brown-soft); }
+  .btn-outline:hover { border-color: var(--gold-soft); color: var(--gold-soft); }
+
+  /* ---------- SECTION TITLES ---------- */
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 600; text-align: center; color: var(--cream); margin-bottom: 6px; }
+  .section-title-deco { text-align: center; color: var(--gold); font-size: 11px; letter-spacing: 0.3em; margin-bottom: 36px; }
+  .section { padding: 56px 0; }
+
+  /* ---------- CATEGORY GROUP ---------- */
+  .cat-group { margin-bottom: 44px; }
+  .cat-group:last-child { margin-bottom: 0; }
+  .cat-label { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+  .cat-label::before, .cat-label::after { content: ''; flex: 1; height: 1px; background: var(--brown-soft); }
+  .cat-label span {
+    font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600;
+    color: var(--gold-soft); letter-spacing: 0.04em; white-space: nowrap;
+  }
+
+  /* ---------- PRODUCT GRID ---------- */
+  .products { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .product {
+    background: var(--cream-card); color: var(--ink);
+    border-radius: var(--radius); overflow: hidden; cursor: pointer;
+    transition: transform .3s ease, box-shadow .3s ease;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  }
+  .product:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.28); }
+  .product-img { aspect-ratio: 4/3; overflow: hidden; background: var(--cream); }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+  .product:hover .product-img img { transform: scale(1.05); }
+  .product-body { padding: 16px 18px 18px; }
+  .product-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 600; line-height: 1.15; margin-bottom: 4px; }
+  .product-price { color: var(--brown); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+  .product-desc { font-size: 13.5px; color: #6B5847; max-height: 0; overflow: hidden; opacity: 0; transition: max-height .35s ease, opacity .35s ease, margin .35s ease; }
+  .product.open .product-desc { max-height: 200px; opacity: 1; margin-top: 4px; }
+  .product-toggle { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 8px; }
+
+  /* ---------- ABOUT ---------- */
+  .about { text-align: center; background: var(--brown-deep); }
+  .about-text { font-family: 'Cormorant Garamond', serif; font-size: 21px; line-height: 1.7; color: var(--text-on-brown); max-width: 540px; margin: 0 auto; }
+  .about-script { font-family: 'Dancing Script', cursive; font-size: 30px; color: var(--gold-soft); margin-top: 24px; }
+
+  /* ---------- ORDER FORM ---------- */
+  .order-card { background: var(--cream-card); color: var(--ink); border-radius: 18px; padding: 36px 30px; box-shadow: 0 10px 36px rgba(0,0,0,0.25); }
+  .order-card .field { margin-bottom: 14px; }
+  .order-card label { display: block; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: var(--brown); margin-bottom: 6px; }
+  .order-card input, .order-card textarea, .order-card select {
+    width: 100%; padding: 12px 14px; border: 1.5px solid #E5D8C3; border-radius: 10px;
+    background: var(--cream); font-family: inherit; font-size: 15px; color: var(--ink); transition: border-color .2s ease;
+  }
+  .order-card input:focus, .order-card textarea:focus, .order-card select:focus { outline: none; border-color: var(--gold); }
+  .order-card textarea { resize: vertical; min-height: 90px; }
+  .order-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .submit-btn {
+    width: 100%; margin-top: 8px; padding: 16px; background: var(--brown); color: var(--cream);
+    border: none; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 0.08em;
+    text-transform: uppercase; cursor: pointer; transition: background .2s ease;
+  }
+  .submit-btn:hover { background: var(--brown-deep); }
+  .order-divider { text-align: center; margin: 26px 0 22px; color: var(--text-on-brown-soft); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .text-order { text-align: center; }
+  .text-order p { color: var(--text-on-brown-soft); font-size: 15px; margin-bottom: 16px; }
+
+  /* ---------- POLICY ---------- */
+  .policy { text-align: center; padding: 44px 0; }
+  .policy-item { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--text-on-brown); margin-bottom: 8px; }
+  .policy-item strong { color: var(--gold-soft); font-weight: 600; }
+
+  /* ---------- FOOTER ---------- */
+  footer { text-align: center; padding: 40px 24px 50px; border-top: 1px solid var(--brown-soft); }
+  .social { display: flex; gap: 14px; justify-content: center; margin-bottom: 22px; }
+  .social a { width: 44px; height: 44px; border: 1.5px solid var(--brown-soft); border-radius: 50%; display: grid; place-items: center; transition: all .25s ease; }
+  .social a:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+  .footer-name { font-family: 'Dancing Script', cursive; font-size: 28px; color: var(--cream); margin-bottom: 6px; }
+  .footer-copy { font-size: 12px; color: var(--text-on-brown-soft); letter-spacing: 0.04em; }
+
+  @media (max-width: 540px) {
+    .products { grid-template-columns: 1fr; }
+    .order-row { grid-template-columns: 1fr; }
+    .actions { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="diamond">◆</div>
+  <div class="logo-name">Batch <span class="amp">&amp;</span> Balance</div>
+  <div class="logo-tag">Small-Batch Bakery</div>
+  <div class="location">Chicagoland's Western Suburbs</div>
+  <div class="rating">★★★★★ &nbsp;Fresh · Small-Batch · Made to Order</div>
+</header>
+
+<!-- ACTIONS -->
+<div class="actions">
+  <a href="#order" class="btn btn-gold">Place an Order</a>
+  <a href="#menu" class="btn btn-outline">See the Menu</a>
+</div>
+
+<!-- MENU -->
+<section class="section" id="menu">
+  <div class="wrap">
+    <h2 class="section-title">What's Baking</h2>
+    <div class="section-title-deco">◆ ◆ ◆</div>
+
+    <!-- QUICK BREADS -->
+    <div class="cat-group">
+      <div class="cat-label"><span>Quick Breads</span></div>
+      <div class="products">
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/banana-bread.jpg" alt="Banana Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Banana Bread</div>
+            <div class="product-price">$10 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">GF option +$2</span></div>
+            <div class="product-desc">Moist, classic banana bread. Gluten-free version available.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/zucchini-cheddar.jpg" alt="Zucchini Cheddar Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Zucchini Cheddar</div>
+            <div class="product-price">$12</div>
+            <div class="product-desc">Savory loaf with garden zucchini and sharp cheddar.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/zucchini-bread.jpg" alt="Zucchini Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Zucchini Bread</div>
+            <div class="product-price">$12 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">GF option +$3</span></div>
+            <div class="product-desc">Moist, lightly spiced zucchini loaf. Gluten-free version available.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/lemon-poppyseed.jpg" alt="Lemon Poppyseed Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Lemon Poppyseed</div>
+            <div class="product-price">$12</div>
+            <div class="product-desc">Bright, zesty lemon loaf speckled with poppyseeds.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/strawberry-lemonade.jpg" alt="Strawberry Lemonade Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Strawberry Lemonade</div>
+            <div class="product-price">$12</div>
+            <div class="product-desc">Sweet-tart summer loaf bursting with strawberry and lemon.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/hummingbird.jpg" alt="Hummingbird Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Hummingbird</div>
+            <div class="product-price">$15</div>
+            <div class="product-desc">Banana, pineapple, and pecans topped with cream cheese frosting — a Southern classic.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/cinnamon-crumble.jpg" alt="Cinnamon Crumble GF Bread"></div>
+          <div class="product-body">
+            <div class="product-name">Cinnamon Crumble (GF)</div>
+            <div class="product-price">$15</div>
+            <div class="product-desc">Gluten-free loaf with a cinnamon swirl and buttery crumble top.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- TREATS -->
+    <div class="cat-group">
+      <div class="cat-label"><span>Treats</span></div>
+      <div class="products">
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/cherry-almond-cheesecakes.jpg" alt="Cherry Almond Cheesecakes"></div>
+          <div class="product-body">
+            <div class="product-name">Cherry Almond Cheesecakes</div>
+            <div class="product-price">$20 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">per dozen</span></div>
+            <div class="product-desc">Mini cheesecakes with cherry topping and toasted almond. Sold by the dozen.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/lemon-bars.jpg" alt="Lemon Bars"></div>
+          <div class="product-body">
+            <div class="product-name">Lemon Bars</div>
+            <div class="product-price">$20 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">9×13 tray</span></div>
+            <div class="product-desc">Tangy lemon curd over a buttery shortbread crust. Full 9×13 tray.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/smores-bark.jpg" alt="S'mores Bark"></div>
+          <div class="product-body">
+            <div class="product-name">S'mores Bark</div>
+            <div class="product-price">$5 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">3pc pack</span></div>
+            <div class="product-desc">Chocolate bark loaded with graham and toasted marshmallow. 3-piece pack.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- PROTEIN -->
+    <div class="cat-group">
+      <div class="cat-label"><span>Protein</span></div>
+      <div class="products">
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/pb-protein-balls.jpg" alt="PB Protein Balls"></div>
+          <div class="product-body">
+            <div class="product-name">PB Protein Balls</div>
+            <div class="product-price">$10 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">per dozen</span></div>
+            <div class="product-desc">No-bake peanut butter, oat, and chocolate chip protein bites — perfect grab-and-go fuel.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/brownie-protein-balls.jpg" alt="Brownie Protein Balls"></div>
+          <div class="product-body">
+            <div class="product-name">Brownie Protein Balls</div>
+            <div class="product-price">$12 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">per dozen</span></div>
+            <div class="product-desc">Rich, fudgy no-bake brownie protein bites for a chocolate fix with a boost.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/yogurt-protein-cups.jpg" alt="Yogurt Protein Cups"></div>
+          <div class="product-body">
+            <div class="product-name">Yogurt Protein Cups</div>
+            <div class="product-price">$10 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">2 cups</span></div>
+            <div class="product-desc">Creamy, high-protein yogurt cups over a graham base. Flavors: blueberry açai, cherry vanilla, and apple pie. Sold in pairs.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/protein-pudding-cups.jpg" alt="Protein Pudding Cups"></div>
+          <div class="product-body">
+            <div class="product-name">Protein Pudding Cups</div>
+            <div class="product-price">$15 &nbsp;<span style="font-weight:400;color:#8A745F;font-size:13px;">4 cups</span></div>
+            <div class="product-desc">Rich, spoonable protein pudding. Flavors: chocolate, lemon, and pistachio. Sold in sets of four.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section about">
+  <div class="wrap">
+    <h2 class="section-title">Our Story</h2>
+    <div class="section-title-deco">◆ ◆ ◆</div>
+    <p class="about-text">
+      Batch &amp; Balance started in a home kitchen with family recipes refined over decades. Everything is made from scratch in small batches — real ingredients, old-fashioned technique, no shortcuts. Whether it's a cozy night in or a thoughtful gift, every order is baked like it's going to our own family.
+    </p>
+    <div class="about-script">made with love</div>
+  </div>
+</section>
+
+<!-- ORDER -->
+<section class="section" id="order">
+  <div class="wrap">
+    <h2 class="section-title">Place Your Order</h2>
+    <div class="section-title-deco">◆ ◆ ◆</div>
+    <p style="text-align:center; font-family:'Cormorant Garamond',serif; font-size:19px; font-style:italic; color:var(--text-on-brown-soft); max-width:520px; margin:-18px auto 36px;">
+      Looking for something special? We love custom orders — just note the details below or text us, and we'll make it happen.
+    </p>
+
+    <div class="order-card">
+      <form action="https://formspree.io/f/mjgqyjdv" method="POST">
+        <div class="order-row">
+          <div class="field">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="order-row">
+          <div class="field">
+            <label for="method">Pickup or Delivery</label>
+            <select id="method" name="method">
+              <option>Porch Pickup</option>
+              <option>Local Delivery</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="date">Needed By</label>
+            <input type="date" id="date" name="date">
+          </div>
+        </div>
+        <div class="field">
+          <label for="order">Your Order</label>
+          <textarea id="order" name="order" placeholder="e.g. 1 Banana Bread (GF), 1 dozen Cherry Almond Cheesecakes, 2 Yogurt Protein Cups..." required></textarea>
+        </div>
+        <div class="field">
+          <label for="notes">Allergies or Special Requests</label>
+          <textarea id="notes" name="notes" style="min-height:60px;"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send My Order</button>
+      </form>
+
+      <div class="order-divider">— or —</div>
+
+      <div class="text-order">
+        <p>Prefer to text? Send your order straight to us at (224) 407-2306.</p>
+        <a href="sms:+12244072306" class="btn btn-gold">Text to Order</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLICY -->
+<section class="policy">
+  <div class="wrap">
+    <p class="policy-item"><strong>Lead time:</strong> Most orders need 48 hours notice</p>
+    <p class="policy-item"><strong>Holidays:</strong> Please order 1 week ahead</p>
+    <p class="policy-item"><strong>Pickup:</strong> Porch pickup &amp; local delivery available</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="social">
+    <a href="https://www.instagram.com/batchnbalance/" target="_blank" rel="noreferrer" aria-label="Instagram">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    </a>
+  </div>
+  <div class="footer-name">Batch &amp; Balance</div>
+  <div class="footer-copy">© 2026 Batch &amp; Balance · Small-Batch Bakery · Chicagoland's Western Suburbs</div>
+</footer>
+
+</body>
+</html>
