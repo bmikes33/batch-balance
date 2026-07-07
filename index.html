@@ -98,6 +98,41 @@
   .product.open .product-desc { max-height: 200px; opacity: 1; margin-top: 4px; }
   .product-toggle { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 8px; }
 
+  /* ---------- PHOTO CAROUSEL ---------- */
+  .carousel { position: relative; }
+  .car-track {
+    display: flex; height: 100%;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .car-track::-webkit-scrollbar { display: none; }
+  .car-track img { flex: 0 0 100%; scroll-snap-align: start; }
+  .product:hover .carousel img { transform: none; }
+  .car-btn {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 30px; height: 30px; border-radius: 50%;
+    border: none; cursor: pointer;
+    background: rgba(250, 242, 233, 0.88); color: var(--brown);
+    font-size: 17px; line-height: 1; font-family: 'Inter', sans-serif;
+    display: grid; place-items: center;
+    box-shadow: 0 2px 8px rgba(74, 47, 34, 0.2);
+    transition: background .2s ease;
+  }
+  .car-btn:hover { background: #fff; }
+  .car-btn.prev { left: 8px; }
+  .car-btn.next { right: 8px; }
+  .car-dots {
+    position: absolute; bottom: 8px; left: 0; right: 0;
+    display: flex; gap: 6px; justify-content: center; pointer-events: none;
+  }
+  .car-dots span {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: rgba(250, 242, 233, 0.65);
+    box-shadow: 0 1px 3px rgba(74, 47, 34, 0.3);
+    transition: background .2s ease;
+  }
+  .car-dots span.active { background: var(--gold); }
+
   /* ---------- ABOUT ---------- */
   .about { text-align: center; background: var(--cream-deep); border-top: 1px solid var(--gold-line); border-bottom: 1px solid var(--gold-line); }
   .about-text { font-family: 'Cormorant Garamond', serif; font-size: 21px; line-height: 1.7; color: var(--brown); max-width: 540px; margin: 0 auto; }
@@ -312,11 +347,17 @@
       <div class="products">
 
         <div class="product" onclick="this.classList.toggle('open')">
-          <div class="product-img"><img src="images/pb-protein-balls.jpg" alt="PB Protein Balls"></div>
+          <div class="product-img carousel">
+            <div class="car-track">
+              <img src="images/pb-protein-balls.jpg" alt="PB Protein Balls with chocolate chips">
+              <img src="images/pb-protein-balls-2.jpg" alt="PB Protein Balls with M&Ms" onerror="carRemove(this)">
+              <img src="images/pb-protein-balls-3.jpg" alt="PB Protein Balls with white chocolate chips" onerror="carRemove(this)">
+            </div>
+          </div>
           <div class="product-body">
             <div class="product-name">PB Protein Balls</div>
             <div class="product-price">$10 &nbsp;<span class="unit">per dozen</span></div>
-            <div class="product-desc">No-bake peanut butter, oat, and chocolate chip protein bites — perfect grab-and-go fuel.</div>
+            <div class="product-desc">No-bake peanut butter, oat, and protein bites — choose chocolate chips, M&amp;Ms, or white chocolate chips. Perfect grab-and-go fuel.</div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -332,7 +373,13 @@
         </div>
 
         <div class="product" onclick="this.classList.toggle('open')">
-          <div class="product-img"><img src="images/yogurt-protein-cups.jpg" alt="Yogurt Protein Cups"></div>
+          <div class="product-img carousel">
+            <div class="car-track">
+              <img src="images/yogurt-protein-cups.jpg" alt="Blueberry açai yogurt protein cup">
+              <img src="images/yogurt-protein-cups-2.jpg" alt="Cherry vanilla yogurt protein cup" onerror="carRemove(this)">
+              <img src="images/yogurt-protein-cups-3.jpg" alt="Apple pie yogurt protein cup" onerror="carRemove(this)">
+            </div>
+          </div>
           <div class="product-body">
             <div class="product-name">Yogurt Protein Cups</div>
             <div class="product-price">$10 &nbsp;<span class="unit">2 cups</span></div>
@@ -342,7 +389,23 @@
         </div>
 
         <div class="product" onclick="this.classList.toggle('open')">
-          <div class="product-img"><img src="images/protein-pudding-cups.jpg" alt="Protein Pudding Cups"></div>
+          <div class="product-img"><img src="images/choc-pb-yogurt-cup.jpg" alt="Chocolate Peanut Butter Yogurt Cup"></div>
+          <div class="product-body">
+            <div class="product-name">Chocolate PB Yogurt Cup</div>
+            <div class="product-price">$15</div>
+            <div class="product-desc">Rich chocolate and creamy peanut butter layered over high-protein yogurt — a decadent treat that still pulls its weight.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img carousel">
+            <div class="car-track">
+              <img src="images/protein-pudding-cups.jpg" alt="Chocolate protein pudding cup">
+              <img src="images/protein-pudding-cups-2.jpg" alt="Lemon protein pudding cup" onerror="carRemove(this)">
+              <img src="images/protein-pudding-cups-3.jpg" alt="Pistachio protein pudding cup" onerror="carRemove(this)">
+            </div>
+          </div>
           <div class="product-body">
             <div class="product-name">Protein Pudding Cups</div>
             <div class="product-price">$15 &nbsp;<span class="unit">4 cups</span></div>
@@ -465,5 +528,72 @@
   <div class="footer-copy">© 2026 Batch &amp; Balance · Small-Batch Bakery · Chicagoland's Western Suburbs</div>
 </footer>
 
+<script>
+  // ---------- Product photo carousels ----------
+  function carInit(car) {
+    var track = car.querySelector('.car-track');
+    var imgs = track.querySelectorAll('img');
+
+    // Remove old controls before (re)building
+    car.querySelectorAll('.car-btn, .car-dots').forEach(function (el) { el.remove(); });
+    if (imgs.length < 2) return; // single photo — no controls needed
+
+    var prev = document.createElement('button');
+    prev.className = 'car-btn prev'; prev.innerHTML = '&#8249;';
+    prev.setAttribute('aria-label', 'Previous photo');
+    var next = document.createElement('button');
+    next.className = 'car-btn next'; next.innerHTML = '&#8250;';
+    next.setAttribute('aria-label', 'Next photo');
+    var dots = document.createElement('div');
+    dots.className = 'car-dots';
+    imgs.forEach(function (_, i) {
+      var d = document.createElement('span');
+      if (i === 0) d.className = 'active';
+      dots.appendChild(d);
+    });
+    car.appendChild(prev); car.appendChild(next); car.appendChild(dots);
+
+    function slideW() { return track.clientWidth; }
+    prev.addEventListener('click', function (e) {
+      e.stopPropagation();
+      track.scrollBy({ left: -slideW(), behavior: 'smooth' });
+    });
+    next.addEventListener('click', function (e) {
+      e.stopPropagation();
+      track.scrollBy({ left: slideW(), behavior: 'smooth' });
+    });
+
+    var ticking = false;
+    track.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var i = Math.round(track.scrollLeft / slideW());
+        dots.querySelectorAll('span').forEach(function (d, j) {
+          d.classList.toggle('active', j === i);
+        });
+        ticking = false;
+      });
+    });
+  }
+
+  // Called by onerror when a photo hasn't been uploaded yet —
+  // drops the missing slide and rebuilds the controls.
+  function carRemove(img) {
+    var car = img.closest('.carousel');
+    img.remove();
+    if (car) carInit(car);
+  }
+
+  document.querySelectorAll('.carousel').forEach(carInit);
+
+  // Safety net: catch any broken image whose error event fired
+  // before this script was parsed.
+  window.addEventListener('load', function () {
+    document.querySelectorAll('.carousel img').forEach(function (img) {
+      if (img.complete && img.naturalWidth === 0) carRemove(img);
+    });
+  });
+</script>
 </body>
 </html>
