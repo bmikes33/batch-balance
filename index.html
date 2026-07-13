@@ -95,7 +95,9 @@
   .product-price { color: var(--rust); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
   .product-price .unit { font-weight: 400; color: var(--brown-faint); font-size: 13px; }
   .product-desc { font-size: 13.5px; color: var(--brown-soft); max-height: 0; overflow: hidden; opacity: 0; transition: max-height .35s ease, opacity .35s ease, margin .35s ease; }
-  .product.open .product-desc { max-height: 200px; opacity: 1; margin-top: 4px; }
+  .product.open .product-desc { max-height: 260px; opacity: 1; margin-top: 4px; }
+  .macros { display: block; margin-top: 9px; font-size: 11.5px; letter-spacing: 0.03em; color: var(--rust); font-weight: 600; }
+  .macros span { color: var(--brown-faint); font-weight: 400; }
   .product-toggle { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-top: 8px; }
 
   /* ---------- PHOTO CAROUSEL ---------- */
@@ -161,6 +163,9 @@
     text-transform: uppercase; cursor: pointer; transition: background .2s ease;
   }
   .submit-btn:hover { background: #3A2318; }
+  .date-note { font-size: 13px; color: var(--brown-soft); background: var(--cream); border: 1px solid var(--gold-line); border-radius: 10px; padding: 11px 14px; margin-bottom: 14px; line-height: 1.5; }
+  .date-note strong { color: var(--rust); }
+  .date-note a { color: var(--gold); font-weight: 600; text-decoration: underline; }
   .order-divider { text-align: center; margin: 26px 0 22px; color: var(--brown-faint); font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; }
   .text-order { text-align: center; }
   .text-order p { color: var(--brown-soft); font-size: 15px; margin-bottom: 16px; }
@@ -300,6 +305,16 @@
           </div>
         </div>
 
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/caprese-bread.jpg" alt="Caprese Bread" onerror="this.parentElement.style.display='none'"></div>
+          <div class="product-body">
+            <div class="product-name">Caprese Bread</div>
+            <div class="product-price">$15</div>
+            <div class="product-desc">Savory loaf inspired by the classic caprese — tomato, basil, and mozzarella.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
       </div>
     </div>
 
@@ -357,7 +372,7 @@
           <div class="product-body">
             <div class="product-name">PB Protein Balls</div>
             <div class="product-price">$10 &nbsp;<span class="unit">per dozen</span></div>
-            <div class="product-desc">No-bake peanut butter, oat, and protein bites — protein flavors include vanilla, chocolate and cookies &amp; cream. Mix-ins include milk, dark or white chocolate chips, as well as M&amp;Ms.</div>
+            <div class="product-desc">No-bake peanut butter, oat, and protein bites — protein flavors include vanilla, chocolate and cookies &amp; cream. Mix-ins include milk, dark or white chocolate chips, as well as M&amp;Ms.<span class="macros">Per ball: 160 cal <span>·</span> 8g protein <span>·</span> 12g carb <span>·</span> 9g fat</span></div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -367,7 +382,7 @@
           <div class="product-body">
             <div class="product-name">Brownie Protein Balls</div>
             <div class="product-price">$12 &nbsp;<span class="unit">per dozen</span></div>
-            <div class="product-desc">Rich, fudgy no-bake brownie protein bites for a chocolate fix with a boost.</div>
+            <div class="product-desc">Rich, fudgy no-bake brownie protein bites for a chocolate fix with a boost.<span class="macros">Per ball: 85 cal <span>·</span> 6.5g protein <span>·</span> 11g carb <span>·</span> 2g fat</span></div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -383,7 +398,7 @@
           <div class="product-body">
             <div class="product-name">Yogurt Protein Cups</div>
             <div class="product-price">$10 &nbsp;<span class="unit">2 cups</span></div>
-            <div class="product-desc">Creamy, high-protein yogurt cups over a graham base. Flavors: blueberry açai, cherry vanilla, and apple pie. Sold in pairs.</div>
+            <div class="product-desc">Creamy, high-protein yogurt cups over a graham base. Flavors: blueberry açai, cherry vanilla, and apple pie. Sold in pairs.<span class="macros">Per cup: 190 cal <span>·</span> 21g protein <span>·</span> 22g carb <span>·</span> 3g fat</span></div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -393,7 +408,7 @@
           <div class="product-body">
             <div class="product-name">Chocolate PB Yogurt Cup</div>
             <div class="product-price">$15 &nbsp;<span class="unit">2 cups</span></div>
-            <div class="product-desc">Rich chocolate and creamy peanut butter layered over high-protein yogurt — a decadent treat that still pulls its weight.</div>
+            <div class="product-desc">Rich chocolate and creamy peanut butter layered over high-protein yogurt — a decadent treat that still pulls its weight.<span class="macros">Per cup: 268 cal <span>·</span> 33g protein <span>·</span> 20g carb <span>·</span> 7g fat</span></div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -409,7 +424,7 @@
           <div class="product-body">
             <div class="product-name">Protein Pudding Cups</div>
             <div class="product-price">$15 &nbsp;<span class="unit">4 cups</span></div>
-            <div class="product-desc">Rich, spoonable protein pudding. Flavors: chocolate, lemon, and pistachio. Sold in sets of four.</div>
+            <div class="product-desc">Rich, spoonable protein pudding. Flavors: chocolate, lemon, pistachio, and salted caramel. Sold in sets of four.<span class="macros">Per cup: 170 cal <span>·</span> 16.5g protein <span>·</span> 16.5g carb <span>·</span> 4g fat</span></div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -483,9 +498,12 @@
           </div>
           <div class="field">
             <label for="date">Needed By</label>
-            <input type="date" id="date" name="date">
+            <select id="date" name="date" required>
+              <option value="" disabled selected>Select a date…</option>
+            </select>
           </div>
         </div>
+        <p class="date-note">Orders are available for <strong>Tuesday</strong> &amp; <strong>Thursday</strong> pickup/delivery. Need a different day? <a href="sms:+12244072306">Text Alayna at (224) 407-2306</a> to arrange an alternate date.</p>
         <div class="field">
           <label for="order">Your Order</label>
           <textarea id="order" name="order" placeholder="e.g. 1 Banana Bread (GF), 1 dozen Cherry Almond Cheesecakes, 2 Yogurt Protein Cups..." required></textarea>
@@ -586,6 +604,33 @@
   }
 
   document.querySelectorAll('.carousel').forEach(carInit);
+
+  // ---------- Order date dropdown: Tuesdays & Thursdays only ----------
+  (function () {
+    var sel = document.getElementById('date');
+    if (!sel) return;
+    var fmt = new Intl.DateTimeFormat('en-US', {
+      weekday: 'long', month: 'long', day: 'numeric'
+    });
+    var d = new Date();
+    d.setHours(0, 0, 0, 0);
+    var added = 0;
+    // Look ahead up to ~8 weeks, collecting the next 8 Tue/Thu dates.
+    for (var i = 0; i < 60 && added < 8; i++) {
+      var day = d.getDay(); // 2 = Tue, 4 = Thu
+      if (day === 2 || day === 4) {
+        var val = d.getFullYear() + '-' +
+          String(d.getMonth() + 1).padStart(2, '0') + '-' +
+          String(d.getDate()).padStart(2, '0');
+        var opt = document.createElement('option');
+        opt.value = val;
+        opt.textContent = fmt.format(d);
+        sel.appendChild(opt);
+        added++;
+      }
+      d.setDate(d.getDate() + 1);
+    }
+  })();
 
   // Safety net: catch any broken image whose error event fired
   // before this script was parsed.
