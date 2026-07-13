@@ -139,6 +139,9 @@
   .about { text-align: center; background: var(--cream-deep); border-top: 1px solid var(--gold-line); border-bottom: 1px solid var(--gold-line); }
   .about-text { font-family: 'Cormorant Garamond', serif; font-size: 21px; line-height: 1.7; color: var(--brown); max-width: 540px; margin: 0 auto; }
   .about-script { font-family: 'Allura', cursive; font-size: 36px; color: var(--gold); margin-top: 22px; }
+  .about-photo { width: 190px; height: 190px; margin: 0 auto 26px; border-radius: 50%; overflow: hidden; border: 3px solid var(--gold-line); box-shadow: 0 8px 24px rgba(74, 47, 34, 0.16); background: var(--card); }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .about-caption { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 16px; color: var(--brown-soft); margin: -14px 0 26px; }
 
   /* ---------- ORDER FORM ---------- */
   .order-intro { text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 19px; font-style: italic; color: var(--brown-soft); max-width: 520px; margin: -16px auto 36px; }
@@ -306,7 +309,7 @@
         </div>
 
         <div class="product" onclick="this.classList.toggle('open')">
-          <div class="product-img"><img src="images/caprese-bread.jpg" alt="Caprese Bread"></div>
+          <div class="product-img"><img src="images/caprese-bread.jpg" alt="Caprese Bread" onerror="this.parentElement.style.display='none'"></div>
           <div class="product-body">
             <div class="product-name">Caprese Bread</div>
             <div class="product-price">$15</div>
@@ -448,6 +451,10 @@
         <rect x="41" y="2" width="5" height="10" rx="2" fill="#C39A4B"/>
       </svg>
     </div>
+    <div class="about-photo">
+      <img src="images/alayna.jpg" alt="Alayna, founder of Batch & Balance" onerror="this.closest('.about-photo').style.display='none'; var c=document.querySelector('.about-caption'); if(c) c.style.display='none';">
+    </div>
+    <p class="about-caption">Alayna — baker &amp; founder</p>
     <p class="about-text">
       Batch &amp; Balance started in a home kitchen with family recipes refined over decades. Everything is made from scratch in small batches — real ingredients, old-fashioned technique, no shortcuts. Whether it's a cozy night in or a thoughtful gift, every order is baked like it's going to our own family.
     </p>
