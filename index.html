@@ -63,6 +63,41 @@
   .btn-outline { background: transparent; color: var(--brown); border: 1.5px solid var(--gold); }
   .btn-outline:hover { background: var(--gold); color: #fff; }
 
+  /* ---------- GIFT BASKET BANNER ---------- */
+  .gift-banner {
+    display: flex; align-items: center; gap: 22px;
+    max-width: 640px; margin: 30px auto 4px;
+    padding: 22px 26px;
+    background: var(--cream-deep);
+    border: 1px solid var(--gold-line);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 18px rgba(74, 47, 34, 0.07);
+  }
+  .gift-art {
+    flex-shrink: 0; width: 120px; height: 120px;
+    object-fit: cover; border-radius: 10px;
+    border: 1px solid var(--gold-line);
+  }
+  .gift-copy { flex: 1; min-width: 0; }
+  .gift-kicker {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .gift-head {
+    font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600;
+    line-height: 1.15; color: var(--brown); margin-bottom: 7px;
+  }
+  .gift-tiers { color: var(--rust); font-weight: 600; font-size: 15px; }
+  .gift-tiers .sep { color: var(--gold-line); font-weight: 400; padding: 0 5px; }
+  .gift-note { font-size: 13.5px; color: var(--brown-soft); margin-top: 9px; line-height: 1.55; }
+  .gift-note a { color: var(--rust); font-weight: 600; border-bottom: 1px solid var(--gold-line); }
+  .gift-note a:hover { border-bottom-color: var(--rust); }
+
+  @media (max-width: 560px) {
+    .gift-banner { flex-direction: column; text-align: center; gap: 14px; padding: 24px 20px; }
+    .gift-art { width: 140px; height: 140px; }
+  }
+
   /* ---------- SECTION TITLES ---------- */
   .section-title { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 600; text-align: center; color: var(--brown); margin-bottom: 10px; }
   .section { padding: 56px 0; }
@@ -219,6 +254,17 @@
   <a href="#menu" class="btn btn-outline">See the Menu</a>
 </div>
 
+<!-- GIFT BASKETS -->
+<aside class="gift-banner" aria-label="Gift baskets">
+  <img class="gift-art" src="images/gift-basket.jpg" alt="Custom gift basket" onerror="this.style.display='none'">
+  <div class="gift-copy">
+    <div class="gift-kicker">New</div>
+    <div class="gift-head">Now Selling Gift Baskets</div>
+    <div class="gift-tiers">$50 <span class="sep">·</span> $75 <span class="sep">·</span> $100</div>
+    <p class="gift-note">Custom-built for the occasion. <a href="sms:+12244072306">Send us a text</a> or a request through the <a href="#order">form below</a> to hear more.</p>
+  </div>
+</aside>
+
 <!-- MENU -->
 <section class="section" id="menu">
   <div class="wrap">
@@ -311,7 +357,7 @@
           <div class="product-body">
             <div class="product-name">S'mores Bark</div>
             <div class="product-price">$15 &nbsp;<span class="unit">per container</span></div>
-            <div class="product-desc">Chocolate bark loaded with graham and toasted marshmallow. </div>
+            <div class="product-desc">Chocolate bark loaded with graham and toasted marshmallow.</div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
