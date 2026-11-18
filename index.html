@@ -363,11 +363,11 @@
         </div>
 
         <div class="product" onclick="this.classList.toggle('open')">
-          <div class="product-img"><img src="images/smores-bark.jpg" alt="S'mores Bark"></div>
+          <div class="product-img"><img src="images/apple-pie-cheesecake-bites.jpg" alt="Apple Pie Cheesecake Bites" onerror="this.parentElement.style.display='none'"></div>
           <div class="product-body">
-            <div class="product-name">S'mores Bark</div>
-            <div class="product-price">$15 &nbsp;<span class="unit">per container</span></div>
-            <div class="product-desc">Chocolate bark loaded with graham and toasted marshmallow.</div>
+            <div class="product-name">Apple Pie Cheesecake Bites</div>
+            <div class="product-price">$25 &nbsp;<span class="unit">per dozen</span></div>
+            <div class="product-desc">Bite-sized cheesecakes with spiced apple pie filling and a buttery crumb topping. Sold by the dozen.</div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -388,6 +388,55 @@
             <div class="product-name">Pumpkin Sugar Cookies</div>
             <div class="product-price">$20 &nbsp;<span class="unit">per batch · ~20 cookies</span></div>
             <div class="product-desc">Soft-baked pumpkin spice sugar cookies with cream cheese frosting. Sold by the batch.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/caramel-bread-pudding.jpg" alt="Caramel Bread Pudding" onerror="this.parentElement.style.display='none'"></div>
+          <div class="product-body">
+            <div class="product-name">Caramel Bread Pudding</div>
+            <div class="product-price">$20 <span class="unit">8×8 pan</span> &nbsp;·&nbsp; $40 <span class="unit">9×13 pan</span></div>
+            <div class="product-desc">Warm, custardy bread pudding under a buttery caramel sauce. Available in two pan sizes.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img carousel">
+            <div class="car-track">
+              <img src="images/hot-cocoa-bombs.jpg" alt="Milk chocolate hot cocoa bomb" onerror="carRemove(this)">
+              <img src="images/hot-cocoa-bombs-2.jpg" alt="Dark chocolate hot cocoa bomb" onerror="carRemove(this)">
+              <img src="images/hot-cocoa-bombs-3.jpg" alt="White chocolate hot cocoa bomb" onerror="carRemove(this)">
+              <img src="images/hot-cocoa-bombs-4.jpg" alt="Salted caramel hot cocoa bomb" onerror="carRemove(this)">
+              <img src="images/hot-cocoa-bombs-5.jpg" alt="Peppermint hot cocoa bomb" onerror="carRemove(this)">
+              <img src="images/hot-cocoa-bombs-6.jpg" alt="Andes mint hot cocoa bomb" onerror="carRemove(this)">
+            </div>
+          </div>
+          <div class="product-body">
+            <div class="product-name">Hot Cocoa Bombs</div>
+            <div class="product-price">$8 &nbsp;<span class="unit">each</span></div>
+            <div class="product-desc">Chocolate shells filled with cocoa and marshmallows — drop one in hot milk and watch it bloom. Flavors: milk chocolate, dark chocolate, white chocolate, salted caramel, peppermint, and Andes mint.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/hot-cocoa-bomb-mug.jpg" alt="Hot Cocoa Bomb with Mug" onerror="this.parentElement.style.display='none'"></div>
+          <div class="product-body">
+            <div class="product-name">Hot Cocoa Bomb &amp; Mug</div>
+            <div class="product-price">$13 &nbsp;<span class="unit">gift set</span></div>
+            <div class="product-desc">Any cocoa bomb flavor paired with a mug — wrapped and ready to gift.</div>
+            <div class="product-toggle">Tap for details</div>
+          </div>
+        </div>
+
+        <div class="product" onclick="this.classList.toggle('open')">
+          <div class="product-img"><img src="images/coffee-bombs.jpg" alt="Coffee Bombs" onerror="this.parentElement.style.display='none'"></div>
+          <div class="product-body">
+            <div class="product-name">Coffee Bombs</div>
+            <div class="product-price">$7 &nbsp;<span class="unit">each</span></div>
+            <div class="product-desc">A coffee lover's take on the cocoa bomb — drop one into hot milk for an instant latte.</div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -487,17 +536,6 @@
             <div class="product-name">Protein Pudding Cups</div>
             <div class="product-price">$15 &nbsp;<span class="unit">4 cups</span></div>
             <div class="product-desc">Rich, spoonable protein pudding. Flavors: Chocolate Peanut Butter, Lemon, Pistachio, Banana Cream, and Chocolate. Sold in sets of four.<span class="macros">Per cup: 170 cal <span>·</span> 16.5g protein <span>·</span> 16.5g carb <span>·</span> 4g fat</span></div>
-            <div class="product-toggle">Tap for details</div>
-          </div>
-        </div>
-
-        <!-- TODO: confirm price — matched to Protein Pudding Cups -->
-        <div class="product" onclick="this.classList.toggle('open')">
-          <div class="product-img"><img src="images/pumpkin-spice-protein-pudding.jpg" alt="Pumpkin Spice Protein Pudding" onerror="this.parentElement.style.display='none'"></div>
-          <div class="product-body">
-            <div class="product-name">Pumpkin Spice Protein Pudding</div>
-            <div class="product-price">$15 &nbsp;<span class="unit">4 cups</span></div>
-            <div class="product-desc">Creamy pumpkin spice protein pudding with a Cool Whip layer through the center. Our seasonal take on the pudding cups. Sold in sets of four.<span class="macros">Per cup: 184 cal <span>·</span> 12.8g protein <span>·</span> 29.5g carb <span>·</span> 1.8g fat</span></div>
             <div class="product-toggle">Tap for details</div>
           </div>
         </div>
@@ -687,7 +725,10 @@
   function carRemove(img) {
     var car = img.closest('.carousel');
     img.remove();
-    if (car) carInit(car);
+    if (!car) return;
+    // No photos uploaded yet — hide the frame instead of showing an empty box.
+    if (!car.querySelector('img')) { car.style.display = 'none'; return; }
+    carInit(car);
   }
 
   document.querySelectorAll('.carousel').forEach(carInit);
